@@ -23,3 +23,49 @@ const requestPromise = (url) => {
 		}, delay);
 	});
 };
+
+requestCallback(
+	'movie.com',
+	function (response) {
+		console.log('success', response);
+		requestCallback(
+			'movie.com',
+			function (response) {
+				console.log('success', response);
+				requestCallback(
+					'movie.com',
+					function (response) {
+						console.log('success', response);
+						requestCallback(
+							'movie.com',
+							function (response) {
+								console.log('success', response);
+								requestCallback(
+									'movie.com',
+									function (response) {
+										console.log('success', response);
+									},
+									function (error) {
+										console.log('error', error);
+									}
+								);
+							},
+							function (error) {
+								console.log('error', error);
+							}
+						);
+					},
+					function (error) {
+						console.log('error', error);
+					}
+				);
+			},
+			function (error) {
+				console.log('error', error);
+			}
+		);
+	},
+	function (error) {
+		console.log('error', error);
+	}
+);
