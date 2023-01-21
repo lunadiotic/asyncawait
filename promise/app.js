@@ -25,40 +25,58 @@ const requestPromise = (url) => {
 };
 
 requestPromise('movie.com')
-	.then((response) => {
-		console.log('success', response);
-		requestPromise('movie.com')
-			.then((response) => {
-				console.log('success', response);
-				requestPromise('movie.com')
-					.then((response) => {
-						console.log('success', response);
-						requestPromise('movie.com')
-							.then((response) => {
-								console.log('success', response);
-								requestPromise('movie.com')
-									.then((response) => {
-										console.log('success', response);
-									})
-									.catch((error) => {
-										console.log('error', error);
-									});
-							})
-							.catch((error) => {
-								console.log('error', error);
-							});
-					})
-					.catch((error) => {
-						console.log('error', error);
-					});
-			})
-			.catch((error) => {
-				console.log('error', error);
-			});
+	.then((result) => {
+		console.log('page 1');
+		console.log(result);
+		return requestPromise('movie.com');
 	})
-	.catch((error) => {
-		console.log('error', error);
+	.then(() => {
+		console.log('page 2');
+		return requestPromise('movie.com');
+	})
+	.then(() => {
+		console.log('page 3');
+		return requestPromise('movie.com');
+	})
+	.catch((err) => {
+		console.log(err);
 	});
+
+// requestPromise('movie.com')
+// 	.then((response) => {
+// 		console.log('success', response);
+// 		requestPromise('movie.com')
+// 			.then((response) => {
+// 				console.log('success', response);
+// 				requestPromise('movie.com')
+// 					.then((response) => {
+// 						console.log('success', response);
+// 						requestPromise('movie.com')
+// 							.then((response) => {
+// 								console.log('success', response);
+// 								requestPromise('movie.com')
+// 									.then((response) => {
+// 										console.log('success', response);
+// 									})
+// 									.catch((error) => {
+// 										console.log('error', error);
+// 									});
+// 							})
+// 							.catch((error) => {
+// 								console.log('error', error);
+// 							});
+// 					})
+// 					.catch((error) => {
+// 						console.log('error', error);
+// 					});
+// 			})
+// 			.catch((error) => {
+// 				console.log('error', error);
+// 			});
+// 	})
+// 	.catch((error) => {
+// 		console.log('error', error);
+// 	});
 
 // requestCallback(
 // 	'movie.com',
